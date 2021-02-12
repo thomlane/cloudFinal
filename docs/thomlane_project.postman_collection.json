@@ -1,0 +1,1733 @@
+{
+	"info": {
+		"_postman_id": "fb4221c2-ac44-4e11-b30d-b4ab5e29189e",
+		"name": "final_thomlane",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add game1 token1 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9db88d04-61d2-4380-8d1e-7d6025eeb47c",
+						"exec": [
+							"pm.environment.set(\"game1\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"lane\"]).to.eq(15);\r",
+							"    pm.expect(pm.response.json()[\"bumpers\"]).to.eq(false);\r",
+							"    pm.expect(pm.response.json()[\"lights\"]).to.eq(false);\r",
+							"    // pm.expect(pm.response.json()[\"balls\"]).to.eq([]);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/games/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lane\": 15,\r\n  \"bumpers\": false,\r\n  \"lights\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add game2 token2 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a6c6cfd-07e4-4468-ac5b-5ba546f7b545",
+						"exec": [
+							"pm.environment.set(\"game2\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"lane\"]).to.eq(1);\r",
+							"    pm.expect(pm.response.json()[\"bumpers\"]).to.eq(true);\r",
+							"    pm.expect(pm.response.json()[\"lights\"]).to.eq(true);\r",
+							"    // pm.expect(pm.response.json()[\"balls\"]).to.eq([]);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/games/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lane\": 1,\r\n  \"bumpers\": true,\r\n  \"lights\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add game3 token1 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c2d34828-1bf2-4f5c-8544-842914565389",
+						"exec": [
+							"pm.environment.set(\"game3\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"lane\"]).to.eq(16);\r",
+							"    pm.expect(pm.response.json()[\"bumpers\"]).to.eq(false);\r",
+							"    pm.expect(pm.response.json()[\"lights\"]).to.eq(false);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/games/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lane\": 16,\r\n  \"bumpers\": false,\r\n  \"private\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get game 3 token 2 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "77895c4a-0444-41e8-8e18-98ec7ddd52fe",
+						"exec": [
+							"pm.test(\"403 no content\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(403);    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"403 error message\", function () {\r",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"Only This game's user can view this game\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game3}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add game with wrong content type 415",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "448bf3f9-0ca7-4364-abcb-09ba214ec6c7",
+						"exec": [
+							"pm.test(\"415 status code\", function () {\r",
+							"    pm.response.to.have.status(415);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"415 error message\", function () {\r",
+							"     pm.expect(pm.response.json()[\"Error\"]).to.eq(\"Can only receive application/json\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add game in used lane 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2f4078dc-7262-4d59-b963-4ebd972599b2",
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"403 error message\", function () {\r",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"A game is already being played in that lane\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lane\": 15,\r\n  \"bumpers\": false,\r\n  \"private\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add ball1 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8cb11ca0-fffd-4aa0-b04a-dc40d1ff4751",
+						"exec": [
+							"pm.environment.set(\"ball1\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(15);\r",
+							"    pm.expect(pm.response.json()[\"color\"]).to.eq(\"orange\");\r",
+							"    pm.expect(pm.response.json()[\"inserts\"]).to.eq(false);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/balls/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"color\": \"orange\",\r\n    \"weight\": 15,\r\n    \"inserts\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/balls",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put ball1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e566a601-f648-4780-aa07-6e64667cb9b6",
+						"exec": [
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(16);\r",
+							"    pm.expect(pm.response.json()[\"color\"]).to.eq(\"purple\");\r",
+							"    pm.expect(pm.response.json()[\"inserts\"]).to.eq(true);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/balls/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"color\": \"purple\",\r\n    \"weight\": 16,\r\n    \"inserts\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/balls/{{ball1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balls",
+						"{{ball1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add ball2 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dbe783c0-e564-4a43-ae24-033f8af60a62",
+						"exec": [
+							"pm.environment.set(\"ball2\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(1);\r",
+							"    pm.expect(pm.response.json()[\"color\"]).to.eq(\"blue\");\r",
+							"    pm.expect(pm.response.json()[\"inserts\"]).to.eq(true);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/balls/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"color\": \"blue\",\r\n    \"weight\": 1,\r\n    \"inserts\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/balls",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch ball2 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51caa13e-a661-4346-acf7-0abca7989470",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(5);\r",
+							"    pm.expect(pm.response.json()[\"color\"]).to.eq(\"blue\");\r",
+							"    pm.expect(pm.response.json()[\"inserts\"]).to.eq(true);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/balls/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"weight\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/balls/{{ball2}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balls",
+						"{{ball2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all balls 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5bef71a-8f34-4055-acef-9ead2a581a3c",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/balls",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get ball1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d2ed6659-92cd-4775-abab-1f44cd1d185c",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/balls/{{ball1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balls",
+						"{{ball1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user_1's games 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "038fd317-a6e5-404c-af0b-faa99da35a9e",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user_2's games 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "762a19b2-5fe1-4084-87fe-e196a22029c8",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add ball1 to game1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e766c26b-e893-47b3-ad99-7471b1e5dda3",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}/balls/{{ball1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}",
+						"balls",
+						"{{ball1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add ball1 to game1 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7306ce80-cc13-4f94-8f9b-13de97eb0859",
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}/balls/{{ball1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}",
+						"balls",
+						"{{ball1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove ball1 from game1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a8ed030-a97b-4707-b06b-136784e8ce27",
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}/balls/{{ball1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}",
+						"balls",
+						"{{ball1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete game no authorization 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fea73875-fa88-4ea6-a34b-0d2796f439eb",
+						"exec": [
+							"pm.test(\"401 no content\", function () {\r",
+							"    pm.response.to.have.status(401);    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"401 error message\", function () {\r",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"Must have an Authorization header\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete ball1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3699cf4c-0fc6-4315-a420-874dfa6edadc",
+						"exec": [
+							"pm.test(\"204 no content\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(204);    \r",
+							"});\r",
+							"\r",
+							"pm.environment.unset('ball1')"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete game 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1caa6887-dd8d-4f97-b230-257e3fe2fbbe",
+						"exec": [
+							"pm.test(\"204 no content\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(204);    \r",
+							"});\r",
+							"\r",
+							"pm.environment.unset('game1')"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add game1 token1 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be70b906-c184-4edf-a9f1-e1b113ea9dd6",
+						"exec": [
+							"pm.environment.set(\"game1\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"lane\"]).to.eq(15);\r",
+							"    pm.expect(pm.response.json()[\"bumpers\"]).to.eq(false);\r",
+							"    pm.expect(pm.response.json()[\"lights\"]).to.eq(false);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/games/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lane\": 15,\r\n  \"bumpers\": false,\r\n  \"private\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put game1 token1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5785a27-0a86-4b28-9af8-e4aeb0da2ab7",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"lane\"]).to.eq(3);\r",
+							"    pm.expect(pm.response.json()[\"bumpers\"]).to.eq(false);\r",
+							"    pm.expect(pm.response.json()[\"lights\"]).to.eq(false);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/games/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lane\": 3,\r\n  \"bumpers\": false,\r\n  \"lights\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/games/{{game1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch game1 token1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "79e25dd4-a4ba-42c6-8198-47ed1a1b3b4f",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"lane\"]).to.eq(3);\r",
+							"    pm.expect(pm.response.json()[\"bumpers\"]).to.eq(true);\r",
+							"    pm.expect(pm.response.json()[\"lights\"]).to.eq(false);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/games/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"bumpers\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/games/{{game1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add ball1 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3679c71-a1f2-4766-a4d8-93e22735aea3",
+						"exec": [
+							"pm.environment.set(\"ball1\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(15);\r",
+							"    pm.expect(pm.response.json()[\"color\"]).to.eq(\"orange\");\r",
+							"    pm.expect(pm.response.json()[\"inserts\"]).to.eq(false);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/balls/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"color\": \"orange\",\r\n    \"weight\": 15,\r\n    \"inserts\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/balls",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add ball2 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5aa06103-502e-4562-8fc4-9644d6bfb7ac",
+						"exec": [
+							"pm.environment.set(\"ball2\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(1);\r",
+							"    pm.expect(pm.response.json()[\"color\"]).to.eq(\"blue\");\r",
+							"    pm.expect(pm.response.json()[\"inserts\"]).to.eq(true);\r",
+							"    const self_url = pm.environment.get(\"url\") + \"/balls/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"color\": \"blue\",\r\n    \"weight\": 1,\r\n    \"inserts\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/balls",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add ball1 to game1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf549dfb-e863-47e9-8faa-126353747138",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}/balls/{{ball1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}",
+						"balls",
+						"{{ball1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add ball2 to game1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "db010767-43b8-4cd7-ba4a-6dcb688b58c5",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}/balls/{{ball2}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}",
+						"balls",
+						"{{ball2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get specific games 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "023cfab8-e651-4e94-9d57-d0234a0cd78c",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete ball1 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ddb27e61-076d-4451-95a2-7780a5922735",
+						"exec": [
+							"pm.test(\"204 no content\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(204);    \r",
+							"});\r",
+							"\r",
+							"pm.environment.unset('ball1')"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/balls/{{ball1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balls",
+						"{{ball1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get specific games 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7baef716-b5af-4dd9-9758-af8c2e84fecf",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete game 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1cdce86-c96b-4c0c-aa84-fc1e2d71c0e1",
+						"exec": [
+							"pm.test(\"204 no content\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(204);    \r",
+							"});\r",
+							"\r",
+							"pm.environment.unset('game1')"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games/{{game1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games",
+						"{{game1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get ball2 200",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/balls/{{ball2}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balls",
+						"{{ball2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wrong path 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3b72b319-8baf-4e0b-a734-ee8e509bdf50",
+						"exec": [
+							"pm.test(\"405 no content\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(405);    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"405 error message\", function () {\r",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"DELETE is not allowed with this route. Try POST or GET\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wrong accept header 406",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "732bdbdc-f4a4-46d8-8b51-bebc49856954",
+						"exec": [
+							"pm.test(\"406 no content\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(406);    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"405 error message\", function () {\r",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"Can only return application/json\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no authorization 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dae9adb5-0926-4a54-a291-3214be8ac8f9",
+						"exec": [
+							"pm.test(\"401 no content\", function () {\r",
+							"    pm.response.to.have.status(401);    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"405 error message\", function () {\r",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"Must have an Authorization header\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all users 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "35881a06-ef70-4d8c-9031-dd379d71520f",
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

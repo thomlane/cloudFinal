@@ -1,0 +1,15 @@
+body {
+  font-family: "helvetica", sans-serif;
+  color: white;
+  background-color: black;
+}
+
+h1 {
+  text-align: center;
+}
+
+#jwt {
+  border: 1px solid white;
+  width: 100%;
+  overflow-wrap: break-word;
+}
